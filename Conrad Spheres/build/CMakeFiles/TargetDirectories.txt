@@ -1,0 +1,4 @@
+/Users/condo/Geant-4/g4work/Conrad Spheres/build/CMakeFiles/sim.dir
+/Users/condo/Geant-4/g4work/Conrad Spheres/build/CMakeFiles/Simulation.dir
+/Users/condo/Geant-4/g4work/Conrad Spheres/build/CMakeFiles/edit_cache.dir
+/Users/condo/Geant-4/g4work/Conrad Spheres/build/CMakeFiles/rebuild_cache.dir

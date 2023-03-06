@@ -1,3 +1,7 @@
+
+//Conrad's Code
+
+
 #include "run.hh"
 #include "G4AccumulableManager.hh"
 #include "construction.hh"
@@ -8,270 +12,35 @@
 #include "G4LogicalVolume.hh"
 #include "G4UnitsTable.hh"
 #include "G4SystemOfUnits.hh"
+#include<string> //new addition
+#include<iostream> //newaddition
 
 MyRunAction::MyRunAction()
 {
 	G4AnalysisManager* man = G4AnalysisManager::Instance();
+	/* This next chunk of code is essentially naming files for each of
+	the scoring volumes. It will eventually need to be optimized, but
+	for right now, I believe it is adequate for our purposes. I do not
+	know how it will perform for multi-threading (probably won't).
+	*/
 
-	man->CreateNtuple("Scoring_0", "Scoring_0");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(0);
+	for(int i = 0; i < 27; i++){
+		
+		std::string my_chunk = "Scoring_";
+		std::string my_num = std::to_string(i);
 
-	man->CreateNtuple("Scoring_1", "Scoring_1");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(1);
+		std::string my_title = my_chunk + my_num;
 
-	man->CreateNtuple("Scoring_2", "Scoring_2");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(2);
-
-	man->CreateNtuple("Scoring_3", "Scoring_3");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(3);
-
-	man->CreateNtuple("Scoring_4", "Scoring_4");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(4);
-
-	man->CreateNtuple("Scoring_5", "Scoring_5");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(5);
-
-	man->CreateNtuple("Scoring_6", "Scoring_6");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(6);
-
-	man->CreateNtuple("Scoring_7", "Scoring_7");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(7);
-
-	man->CreateNtuple("Scoring_8", "Scoring_8");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(8);
-
-	man->CreateNtuple("Scoring_9", "Scoring_9");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(9);
-
-	man->CreateNtuple("Scoring_10", "Scoring_10");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(10);
-
-	man->CreateNtuple("Scoring_11", "Scoring_11");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(11);
-
-	man->CreateNtuple("Scoring_12", "Scoring_12");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(12);
-
-	man->CreateNtuple("Scoring_13", "Scoring_13");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(13);
-
-	man->CreateNtuple("Scoring_14", "Scoring_14");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(14);
-
-	man->CreateNtuple("Scoring_15", "Scoring_15");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(15);
-
-	man->CreateNtuple("Scoring_16", "Scoring_16");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(16);
-
-	man->CreateNtuple("Scoring_17", "Scoring_17");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(17);
-
-	man->CreateNtuple("Scoring_18", "Scoring_18");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(18);
-
-	man->CreateNtuple("Scoring_19", "Scoring_19");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(19);
-
-	man->CreateNtuple("Scoring_20", "Scoring_20");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(20);
-
-	man->CreateNtuple("Scoring_21", "Scoring_21");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(21);
-
-	man->CreateNtuple("Scoring_22", "Scoring_22");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(22);
-
-	man->CreateNtuple("Scoring_23", "Scoring_23");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(23);
-
-	man->CreateNtuple("Scoring_24", "Scoring_24");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(24);
-
-	man->CreateNtuple("Scoring_25", "Scoring_25");
-	man->CreateNtupleDColumn("Deposit#");
-	man->CreateNtupleDColumn("fEdep");
-	man->CreateNtupleDColumn("Dose_Rad_Si");
-	man->CreateNtupleDColumn("Total_Edep");
-	man->CreateNtupleDColumn("Total_Dose");
-	man->CreateNtupleDColumn("AvgEdep");
-	man->CreateNtupleDColumn("AvgDose");
-	man->FinishNtuple(25);
+		man->CreateNtuple(my_title, my_title);
+		man->CreateNtupleDColumn("Deposit#");
+		man->CreateNtupleDColumn("fEdep");
+		man->CreateNtupleDColumn("Dose_Rad_Si");
+		man->CreateNtupleDColumn("Total_Edep");
+		man->CreateNtupleDColumn("Total_Dose");
+		man->CreateNtupleDColumn("AvgEdep");
+		man->CreateNtupleDColumn("AvgDose");
+		man->FinishNtuple(i);
+	}
 }
 
 MyRunAction::~MyRunAction()

@@ -1,0 +1,14 @@
+#class tools::wcsv::ntuple
+#title Scoring_7
+#separator 44
+#vector_separator 59
+#column double Deposit#
+#column double fEdep
+#column double Dose_Rad_Si
+#column double Total_Edep
+#column double Total_Dose
+#column double AvgEdep
+#column double AvgDose
+1,0.00427359,3.22813e-12,0.00427359,3.22813e-12,0.0906451,3.22813e-12
+2,0.00560749,4.23572e-12,0.00988108,7.46385e-12,0.104792,3.73193e-12
+3,0.0138528,1.0464e-11,0.0237339,1.79278e-11,0.167803,5.97594e-12

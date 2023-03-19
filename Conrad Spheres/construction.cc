@@ -39,6 +39,7 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 	//
 	// when other material is after scoring volumes that are 10 um apart
 	solidAu = new G4Sphere("solidAu", 0.25025 * m, 0.25325 * m, 0., 3.141592653 * 2, 0., 3.141592653);
+	// 
 
 	logicAu = new G4LogicalVolume(solidAu, Au, "logicalAu");
 
@@ -161,6 +162,7 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 	logicAl_25 = new G4LogicalVolume(solidAl_25, Al, "logicalAl");
 
 	logicAl_a = new G4LogicalVolume(solidAl_a, Al, "logicalAl");
+	// what is a????
 
 	fScoringVolume_0 = logicAl_0;
 	fScoringVolume_1 = logicAl_1;
@@ -218,6 +220,9 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 	physAl_25 = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicAl_25, "physAl", logicWorld, false, 36, true);
 
 	physAl_a = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicAl_a, "physAl", logicWorld, false, 11, true);
+	// why do a and 25 overlap? what is their purpose? why are they here?
+	// check these copy numbers out... why do they have the number that they have?
+
 
 	return physWorld;
 }

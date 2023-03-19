@@ -7,6 +7,9 @@
 
 MyEventAction::MyEventAction(MyRunAction*)
 {
+
+	// what follows is the initializing of all of these values. There has got to be a way to 
+	// turn these into a loop, but that is difficult. 
 	fEdep_0 = 0.;
 	i_0 = 0;
 	TotalEdep_0 = 0;
@@ -670,7 +673,7 @@ void MyEventAction::EndOfEventAction(const G4Event*)
 
 	if (fEdep_17 != 0)
 	{
-		G4double mass_17_g = mass_17 / (6.24153e21);
+		G4double mass_17_g = mass_17 / (6.24153e21); // co
 		G4double erg_17 = fEdep_17 / 624151;
 		G4double dose_rad_si_17 = erg_17 / mass_17_g / 100;
 
@@ -838,8 +841,8 @@ void MyEventAction::EndOfEventAction(const G4Event*)
 
 	if (fEdep_24 != 0)
 	{
-		G4double mass_24_g = mass_24 / (6.24153e21);
-		G4double erg_24 = fEdep_24 / 624151;
+		G4double mass_24_g = mass_24 / (6.24153e21); //conversion factor
+		G4double erg_24 = fEdep_24 / 624151; // conversion factor
 		G4double dose_rad_si_24 = erg_24 / mass_24_g / 100;
 
 		i_24 = i_24 + 1;

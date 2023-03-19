@@ -61,7 +61,7 @@ private:
 	G4LogicalVolume* logicWorld, * logicAu, * logicAl_0, * logicAl_1, * logicAl_2, * logicAl_3, * logicAl_4, * logicAl_5, * logicAl_6, * logicAl_7, * logicAl_8, * logicAl_9, *logicAl_10;
 	G4VPhysicalVolume* physWorld, * physAu, * physAl_0, * physAl_1, * physAl_2, * physAl_3, * physAl_4, * physAl_5, * physAl_6, * physAl_7, * physAl_8, * physAl_9, *physAl_10;
 
-	G4Sphere* solidAl_a;
+	G4Sphere* solidAl_a; // naming conventions for aluminum and materials in general...
 	G4LogicalVolume* logicAl_a;
 	G4VPhysicalVolume* physAl_a;
 

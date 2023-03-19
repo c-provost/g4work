@@ -180,7 +180,7 @@ void MySteppingAction::UserSteppingAction(const G4Step* step)
 		fEventAction->AddEnergyDep_22(edep_22);
 	}
 
-	if (volume == fScoringVolume_22)
+	if (volume == fScoringVolume_23)
 	{
 		G4double edep_23 = step->GetTotalEnergyDeposit();
 		fEventAction->AddEnergyDep_23(edep_23);

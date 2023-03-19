@@ -44,3 +44,5 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event* anEvent)
 
 	fParticleGun->GeneratePrimaryVertex(anEvent);
 }
+
+// check out particle creation and how they interact with the gun. (Docs)

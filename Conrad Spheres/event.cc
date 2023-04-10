@@ -230,6 +230,7 @@ void MyEventAction::BeginOfEventAction(const G4Event*)
 void MyEventAction::EndOfEventAction(const G4Event*)
 {
 	G4AnalysisManager* man = G4AnalysisManager::Instance();
+	//my run action????
 
 	const MyDetectorConstruction* detectorConstruction
 		= static_cast<const MyDetectorConstruction*>
